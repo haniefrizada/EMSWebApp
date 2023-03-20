@@ -1,0 +1,67 @@
+﻿@model IEnumerable<EMSWebApp.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    td a {
+        text-decoration: none;
+        color: black;
+        border: 1px solid;
+        border-radius: 7px;
+        padding: 5px 10px 5px 10px;
+    }
+
+    td a:hover {
+        color: #f2f2f2;
+        background-color: #8c8c8c;
+    }
+
+    p a {
+        text-decoration: none;
+        color: black;
+        border: 1px solid;
+        border-radius: 7px;
+        padding: 5px 10px 5px 10px;
+    }
+
+    p a:hover {
+        color: #f2f2f2;
+        background-color: #8c8c8c;
+    }
+
+
+</style>
+
+<h1>List of Departments</h1>
+
+<p>
+    <a asp-action="Create" class="alert-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DeptName)
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DeptId" class="alert-secondary">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.DeptId" class="alert-info">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.DeptId" class="alert-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
